@@ -1,0 +1,21 @@
+{:source-paths ["src/clj"
+                "src/cljs"
+                "src/js"]
+ 
+ :nrepl {:port 3333}
+ :dependencies []
+ 
+ :builds {:extension {:target :esm
+                      :output-dir "unpacked/out"
+                      :runtime :custom
+                      :modules {:shared {:entries []}
+                                :background {:entries [hulunote-chrome-extension.background]
+                                             :depends-on #{:shared}} 
+                                :popup {:entries [hulunote-chrome-extension.popup]
+                                        :depends-on #{:shared}}
+                                :options {:entries [hulunote-chrome-extension.options]
+                                          :depends-on #{:shared}}}}
+          :core {:target :browser
+                 :output-dir "unpacked/out"
+                 :modules {:content-scripts {:entries [hulunote-chrome-extension.core]}}}
+          }}

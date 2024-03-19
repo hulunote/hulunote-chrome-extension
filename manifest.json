@@ -1,0 +1,47 @@
+{
+    "name": "hulunote",
+    "description": "葫芦笔记•世界上最聪明的人都在用的笔记",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "icons": {
+        "16":"logo-16.png",
+        "48":"logoBig.png"
+
+    },
+    "browser_action": {
+        "default_popup": "html/popup.html",
+        "default_title": "hulunote",
+        "default_icon": {
+            "16": "logo-16.png"
+        }
+    },
+    "permissions": [
+        "https://www.hulunote.com/*/",
+        "tabs",
+        "contextMenus",
+        "storage",
+        "notifications"
+    ],
+    "background": {
+        "page": "html/background.html"
+    },
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "MacCtrl+Shift+F"
+            },
+            "description": "Opens html/index.html"
+        }
+    },
+    "options_page": "html/options.html",
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["target/core.js"],
+        "run_at": "document_start",
+        "all_frames": true
+    }],
+    "omnibox": {
+        "keyword": "memo"
+    }
+}

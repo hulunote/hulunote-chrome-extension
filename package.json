@@ -1,0 +1,18 @@
+{
+  "name": "hulunote-chrome-extension-cljs",
+  "version": "1.0.0",
+  "description": "hulunote chrome extension written in cljs",
+  "repository": "git@bitbucket.org:hulunote-backend/hulunote-chrome-extension-cljs.git",
+  "author": "JackyWong <Hzqi_110@hotmail.com>",
+  "private": true,
+  "scripts": {
+    "watch": "shadow-cljs watch",
+    "compile": "rm -rf unpacked/out && shadow-cljs compile extension && shadow-cljs compile core",
+    "release": "rm -rf unpacked/out && shadow-cljs release extension && shadow-cljs release core",
+    "clean": "rm -rf unpacked/out"
+  },
+  "devDependencies": {
+    "shadow-cljs": "2.16.4"
+  },
+  "dependencies": {}
+}

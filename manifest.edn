@@ -1,0 +1,19 @@
+{:name "hulunote"
+ :description "葫芦笔记•世界上最聪明的人都在用的笔记"
+ :version "1.0.0"
+ :manifest_version 2
+ :permissions ["https://www.hulunote.com/*/",
+               "tabs",
+               "contextMenus",
+               "storage",
+               "notifications"]
+ :icons {"16" "images/logo-16.png"
+         "48" "images/logoBig.png"}
+ :browser-action {:default-title "hulunote"
+                  :default-icon "images/logo-16.png"
+                  :default-popup "html/popup.html"}
+ :commands {"_execute_browser_action" {"suggested_key" {"default" "Ctrl+Shift+F"
+                                                        "mac" "MacCtrl+Shift+F"}
+                                       "description" "Opens html/index.html"}}
+ :omnibox {:keyword "memo"}
+ :content-security-policy []}

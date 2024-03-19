@@ -1,0 +1,42 @@
+{
+  "description": "\u846b\u82a6\u7b14\u8bb0\u2022\u4e16\u754c\u4e0a\u6700\u806a\u660e\u7684\u4eba\u90fd\u5728\u7528\u7684\u7b14\u8bb0",
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "storage",
+    "notifications",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "https://www.hulunote.com/*/"
+  ],
+  "action": {
+    "default_title": "hulunote",
+    "default_icon": "images/logo-16.png",
+    "default_popup": "html/popup.html"
+  },
+  "name": "hulunote",
+  "background": {
+    "service_worker": "out/background.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "images/logo-16.png",
+    "48": "images/logoBig.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "content_scripts": [
+    {
+      "js": ["out/content-scripts.js"],
+      "matches": [
+        "http://*/*","https://*/*"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "type": "module"
+    }
+  ],
+  "manifest_version": 3,
+  "version": "1.0.0"
+}
